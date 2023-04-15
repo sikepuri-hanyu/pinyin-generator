@@ -1,11 +1,14 @@
 import React, { useState, Fragment } from "react";
 import pinyin from "pinyin";
-import { TextField, Paper } from "@mui/material";
+import { Typography, TextField, Paper } from "@mui/material";
 
 function App(): JSX.Element {
   const [inputChineseText, setInputChineseText] = useState<string>("");
   return (
     <>
+      <Typography variant="h4" component="h2" p={1}>
+        Chinese
+      </Typography>
       <TextField
         placeholder="Enter Chinese text here."
         multiline
@@ -17,6 +20,9 @@ function App(): JSX.Element {
           setInputChineseText(e.target.value);
         }}
       />
+      <Typography variant="h4" component="h2" p={1}>
+        Pinyin
+      </Typography>
       <Paper style={{ minHeight: "10rem", padding: 10, paddingTop: 20 }}>
         {Array.from(inputChineseText).map((chineseChar, i) => (
           <Fragment key={i}>
