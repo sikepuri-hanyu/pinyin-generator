@@ -17,7 +17,7 @@ function App(): JSX.Element {
           setInputChineseText(e.target.value);
         }}
       />
-      <Paper style={{ minHeight: "10rem", padding: 10 }}>
+      <Paper style={{ minHeight: "10rem", padding: 10, paddingTop: 20 }}>
         {Array.from(inputChineseText).map((chineseChar, i) => (
           <Fragment key={i}>
             <ruby
