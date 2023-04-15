@@ -1,15 +1,39 @@
 import React, { useState, Fragment } from "react";
 import pinyin from "pinyin";
-import { Stack, Box, Typography, TextField, Paper } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Stack,
+  Box,
+  TextField,
+  Paper,
+} from "@mui/material";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 function App(): JSX.Element {
   const [inputChineseText, setInputChineseText] = useState<string>("");
   return (
     <>
+      <AppBar>
+        <Toolbar>
+          <Typography variant="h4" component="div" flexGrow={1}>
+            Pinyin Generator
+          </Typography>
+          <IconButton
+            color="inherit"
+            href="https://github.com/sikepuri-hanyu/pinyin-generator/"
+          >
+            <GitHubIcon fontSize="large" />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      <Toolbar />
       <Box m={2}>
         <Stack direction={{ md: "column", lg: "row" }} spacing={2}>
           <Box flexGrow={1}>
-            <Typography variant="h4" component="h2" p={1}>
+            <Typography variant="h4" component="h1" p={1}>
               Chinese
             </Typography>
             <TextField
@@ -25,7 +49,7 @@ function App(): JSX.Element {
             />
           </Box>
           <Box flexGrow={1}>
-            <Typography variant="h4" component="h2" p={1}>
+            <Typography variant="h4" component="h1" p={1}>
               Pinyin
             </Typography>
             <Paper style={{ minHeight: "10rem", padding: 10, paddingTop: 20 }}>
