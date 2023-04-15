@@ -20,7 +20,10 @@ function App(): JSX.Element {
       <Paper style={{ minHeight: "10rem", padding: 10 }}>
         {Array.from(inputChineseText).map((chineseChar, i) => (
           <Fragment key={i}>
-            <ruby style={{ margin: "0.3rem" }} lang="zh-cmn-Hans">
+            <ruby
+              style={{ margin: "0.3rem", fontSize: "2rem" }}
+              lang="zh-cmn-Hans"
+            >
               {chineseChar} <rp>(</rp>
               <rt>
                 {pinyin(chineseChar, {
