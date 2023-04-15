@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from "react";
 import pinyin from "pinyin";
-import { TextField } from "@mui/material";
+import { TextField, Paper } from "@mui/material";
 
 function App(): JSX.Element {
   const [inputChineseText, setInputChineseText] = useState<string>("");
@@ -16,20 +16,22 @@ function App(): JSX.Element {
           setInputChineseText(e.target.value);
         }}
       />
-      {Array.from(inputChineseText).map((chineseChar, i) => (
-        <Fragment key={i}>
-          <ruby style={{ margin: "0.3rem" }}>
-            {chineseChar} <rp>(</rp>
-            <rt>
-              {pinyin(chineseChar, {
-                heteronym: true,
-                style: pinyin.STYLE_TONE,
-              }).join("")}
-            </rt>
-            <rp>)</rp>
-          </ruby>
-        </Fragment>
-      ))}
+      <Paper style={{ minHeight: "10rem", padding: 10 }}>
+        {Array.from(inputChineseText).map((chineseChar, i) => (
+          <Fragment key={i}>
+            <ruby style={{ margin: "0.3rem" }}>
+              {chineseChar} <rp>(</rp>
+              <rt>
+                {pinyin(chineseChar, {
+                  heteronym: true,
+                  style: pinyin.STYLE_TONE,
+                }).join("")}
+              </rt>
+              <rp>)</rp>
+            </ruby>
+          </Fragment>
+        ))}
+      </Paper>
     </>
   );
 }
