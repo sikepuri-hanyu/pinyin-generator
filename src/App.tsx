@@ -1,12 +1,16 @@
 import React, { useState, Fragment } from "react";
 import pinyin from "pinyin";
+import { TextField } from "@mui/material";
 
 function App(): JSX.Element {
   const [inputChineseText, setInputChineseText] = useState<string>("");
   return (
     <>
-      <input
-        type="text"
+      <TextField
+        placeholder="Enter Chinese text here."
+        multiline
+        minRows={5}
+        fullWidth
         value={inputChineseText}
         onChange={(e) => {
           setInputChineseText(e.target.value);
